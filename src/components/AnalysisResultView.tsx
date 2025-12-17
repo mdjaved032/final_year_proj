@@ -67,7 +67,7 @@ const AnalysisResultView = () => {
   // Gauge Calculation
   const radius = 80;
   const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (animateScore / 100) * (circumference / 2); // Only use half circle
+  const offset = circumference - ((animateScore / 100) * (circumference / 2)); // Only use half circle
 
   return (
     <div className="h-screen overflow-hidden bg-black flex flex-col relative animate-in fade-in duration-500">
@@ -88,8 +88,10 @@ const AnalysisResultView = () => {
 
         <div className="flex flex-col items-center relative z-10">
           {/* Gauge/Meter */}
-          <div className="relative w-48 h-28 flex items-start justify-center overflow-hidden mb-2">
-            <svg className="w-48 h-48 transform rotate-180">
+          <div className="relative w-48 h-24 flex items-start justify-center overflow-hidden mb-4">
+            <svg className="w-48 h-48 transform rotate-180"
+              viewBox="0 0 192 192"
+            >
               {/* Background Track */}
               <circle
                 cx="96"
@@ -116,7 +118,7 @@ const AnalysisResultView = () => {
                 strokeLinecap="round"
               />
             </svg>
-            <div className="absolute bottom-4 w-full text-center">
+            <div className="absolute bottom-0 w-full text-center">
               <span className={clsx("text-5xl font-bold tracking-tighter text-white")}>
                 {animateScore}
               </span>
